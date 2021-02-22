@@ -11,6 +11,7 @@ class CalendarVc: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         let calendar = CalendarView()
         calendar.setup(with: CalendarViewModel(routerDelegate: self))
         calendar.translatesAutoresizingMaskIntoConstraints = false

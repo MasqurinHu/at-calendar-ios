@@ -50,6 +50,9 @@ extension CalendarView: ViewModelHolder {
         titleLb.text = self.viewModel?.title
         self.viewModel?.lastBtnEnableDidChange({ [weak self] isEnable in
             self?.lastBtn.isEnabled = isEnable
+            self?.lastBtn.layer.borderColor = isEnable
+                ? UIColor.darkText.cgColor
+                : UIColor.lightGray.cgColor
         })
         self.viewModel?.dayRangeDidChange({ [weak self] dayRange in
             self?.dateRangeLb.text = dayRange
@@ -82,7 +85,7 @@ private extension CalendarView {
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             closeBtn.centerXAnchor.constraint(equalTo: centerXAnchor),
-            closeBtn.bottomAnchor.constraint(equalTo: bottomAnchor)
+            closeBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -95,9 +98,11 @@ private extension CalendarView {
     func getBtn(with title: String) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.setTitle(title, for: .normal)
+        btn.setTitleColor(.darkText, for: .normal)
+        btn.setTitleColor(.lightGray, for: .disabled)
         btn.layer.cornerRadius = 8
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.lightText.cgColor
+        btn.layer.borderColor = UIColor.darkText.cgColor
         return btn
     }
     
