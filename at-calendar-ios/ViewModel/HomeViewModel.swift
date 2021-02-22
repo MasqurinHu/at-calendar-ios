@@ -20,7 +20,7 @@ class HomeViewModel {
 }
 
 extension HomeViewModel: BtnViewViewModelSpec {
-    var btnTitle: String { "下一頁" }
+    var btnTitle: String { NSLocalizedString("HomeBtnTitle", comment: "Next Page") }
     
     func btnAction() {
         router?.showCalendar()
