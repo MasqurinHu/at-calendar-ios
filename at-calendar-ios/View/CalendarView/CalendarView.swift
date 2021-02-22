@@ -14,6 +14,7 @@ protocol CalendarViewViewModelSpec: ViewModelSpec {
     func nextBtnAction()
     func dayRangeDidChange(_ dayRange: (String) -> Void)
     func descriptionDidChange(_ description: (String) -> Void)
+    func dayListDidChange(_ dayList: ([DayViewViewModelSpec]) -> Void)
     var closeBtnTitle: String { get }
     func closeBtnAction()
 }
@@ -36,6 +37,7 @@ class CalendarView: UIView {
     private let descriptionLb = UILabel()
     
     private var viewModel: ViewModel?
+    private var dayViewList = [TopLineView]()
     
     private lazy var titleLb = getTitle()
     private lazy var lastBtn = getLastBtn()
@@ -61,11 +63,19 @@ extension CalendarView: ViewModelHolder {
         self.viewModel?.descriptionDidChange({ [weak self] description in
             self?.descriptionLb.text = description
         })
+        self.viewModel?.dayListDidChange({ [weak self] dayList in
+            self?.dayViewList.enumerated().forEach({ [weak self] item in
+                guard let self = self , item.offset < self.dayViewList.count else { return }
+                item.element.setup(with: dayList[item.offset])
+            })
+        })
     }
 }
 // MARK: - layout
 private extension CalendarView {
-    
+    var gap: CGFloat { 8 }
+    var dayCount: Int { 7 }
+
     func setupLayout() {
         let btnStack = UIStackView(arrangedSubviews: [lastBtn, nextBtn])
         btnStack.spacing = 4
@@ -80,6 +90,7 @@ private extension CalendarView {
             topStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             topStack.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+        setupDayList()
         
         addSubview(closeBtn)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +98,27 @@ private extension CalendarView {
             closeBtn.centerXAnchor.constraint(equalTo: centerXAnchor),
             closeBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+
+    func setupDayList() {
+        dayViewList.forEach { $0.removeFromSuperview() }
+        dayViewList.removeAll()
+        for i in 0 ..< dayCount {
+            let view = TopLineView()
+            dayViewList.append(view)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(view)
+            view.topAnchor.constraint(equalTo: descriptionLb.bottomAnchor, constant: 16).isActive = true
+            if i == .zero {
+                view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+            } else {
+                view.leadingAnchor.constraint(equalTo: dayViewList[i - 1].trailingAnchor, constant: gap).isActive = true
+                view.widthAnchor.constraint(equalTo: dayViewList[i - 1].widthAnchor).isActive = true
+            }
+            if i == dayCount - 1 {
+                view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+            }
+        }
     }
     
     func getTitle() -> UILabel {

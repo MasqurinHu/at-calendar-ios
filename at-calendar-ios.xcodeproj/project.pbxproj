@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4524D35325E41862004B25D3 /* TopLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D35225E41862004B25D3 /* TopLineView.swift */; };
 		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		452A12C425E3B06F00444689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452A12C325E3B06F00444689 /* Main.storyboard */; };
 		452A12D025E3B18500444689 /* CalendarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12CF25E3B18500444689 /* CalendarVc.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4524D35225E41862004B25D3 /* TopLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLineView.swift; sourceTree = "<group>"; };
 		452A129525E3A9EE00444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		452A129F25E3AAA100444689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4524D35125E417D6004B25D3 /* TopLineView */ = {
+			isa = PBXGroup;
+			children = (
+				4524D35225E41862004B25D3 /* TopLineView.swift */,
+			);
+			path = TopLineView;
+			sourceTree = "<group>";
+		};
 		452A12A825E3ACB300444689 /* HomeVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 			children = (
 				45F237EB25E3A09900A69250 /* ViewModelHolder.swift */,
 				45F237E125E39E6600A69250 /* XibView.swift */,
+				4524D35125E417D6004B25D3 /* TopLineView */,
 				452A12D425E3B2DB00444689 /* CalendarView */,
 				45F237D625E39E2900A69250 /* BtnView */,
 			);
@@ -350,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				452A12D625E3B2F000444689 /* CalendarView.swift in Sources */,
+				4524D35325E41862004B25D3 /* TopLineView.swift in Sources */,
 				45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */,
 				45F237E725E3A07200A69250 /* ViewModelSpec.swift in Sources */,
 				45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */,
