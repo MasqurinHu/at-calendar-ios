@@ -10,6 +10,8 @@
 		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		452A12C425E3B06F00444689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452A12C325E3B06F00444689 /* Main.storyboard */; };
 		452A12D025E3B18500444689 /* CalendarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12CF25E3B18500444689 /* CalendarVc.swift */; };
+		452A12D625E3B2F000444689 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12D525E3B2F000444689 /* CalendarView.swift */; };
+		452A12DE25E3C25700444689 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12DD25E3C25700444689 /* CalendarViewModel.swift */; };
 		45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376525E0FE4400A69250 /* AppDelegate.swift */; };
 		45F2376825E0FE4400A69250 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376725E0FE4400A69250 /* SceneDelegate.swift */; };
 		45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376925E0FE4400A69250 /* ViewController.swift */; };
@@ -48,6 +50,8 @@
 		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		452A12C325E3B06F00444689 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		452A12CF25E3B18500444689 /* CalendarVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVc.swift; sourceTree = "<group>"; };
+		452A12D525E3B2F000444689 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		452A12DD25E3C25700444689 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		45F2376225E0FE4400A69250 /* at-calendar-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "at-calendar-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2376525E0FE4400A69250 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45F2376725E0FE4400A69250 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 			path = CalendarVc;
 			sourceTree = "<group>";
 		};
+		452A12D425E3B2DB00444689 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				452A12D525E3B2F000444689 /* CalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		45F2375925E0FE4400A69250 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +182,7 @@
 			children = (
 				45F237EB25E3A09900A69250 /* ViewModelHolder.swift */,
 				45F237E125E39E6600A69250 /* XibView.swift */,
+				452A12D425E3B2DB00444689 /* CalendarView */,
 				45F237D625E39E2900A69250 /* BtnView */,
 			);
 			path = View;
@@ -180,6 +193,7 @@
 			children = (
 				45F237E625E3A07200A69250 /* ViewModelSpec.swift */,
 				45F237F025E3A31B00A69250 /* HomeViewModel.swift */,
+				452A12DD25E3C25700444689 /* CalendarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452A12D625E3B2F000444689 /* CalendarView.swift in Sources */,
 				45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */,
 				45F237E725E3A07200A69250 /* ViewModelSpec.swift in Sources */,
 				45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */,
@@ -343,6 +358,7 @@
 				45F237E225E39E6600A69250 /* XibView.swift in Sources */,
 				45F237EC25E3A09900A69250 /* ViewModelHolder.swift in Sources */,
 				452A12D025E3B18500444689 /* CalendarVc.swift in Sources */,
+				452A12DE25E3C25700444689 /* CalendarViewModel.swift in Sources */,
 				45F237DD25E39E4800A69250 /* BtnView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

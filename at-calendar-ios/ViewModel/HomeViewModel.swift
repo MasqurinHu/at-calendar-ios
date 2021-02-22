@@ -18,7 +18,7 @@ class HomeViewModel {
         router = routerDelegate
     }
 }
-
+// MARK: - BtnViewViewModelSpec
 extension HomeViewModel: BtnViewViewModelSpec {
     var btnTitle: String { NSLocalizedString("HomeBtnTitle", comment: "Next Page") }
     

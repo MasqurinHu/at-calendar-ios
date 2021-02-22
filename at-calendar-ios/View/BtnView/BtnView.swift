@@ -15,24 +15,19 @@ protocol BtnViewViewModelSpec: ViewModelSpec {
 class BtnView: XibView {
     @IBOutlet private var btn: UIButton!
     
+    typealias ViewModel = BtnViewViewModelSpec
+    
     @IBAction private func btnTap(_ btn: UIButton) {
         viewModel?.btnAction()
     }
     
     private var viewModel: ViewModel?
 }
-
+// MARK: - ViewModelHolder
 extension BtnView: ViewModelHolder {
     
     func setup(with viewModel: ViewModelSpec) {
         self.viewModel = viewModel as? ViewModel
         btn.setTitle(self.viewModel?.btnTitle, for: .normal)
     }
-    
-    
-}
-
-private extension BtnView {
-    typealias ViewModel = BtnViewViewModelSpec
-    
 }

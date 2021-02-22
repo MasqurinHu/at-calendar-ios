@@ -8,3 +8,8 @@
 
 "Home" = "";
 "HomeBtnTitle" = "下一頁";
+
+"Calendar" = "";
+"CalendarTitle" = "授課時間";
+"CalendarDescription" = "* 時間以:";
+"CalendarClose" = "關閉";

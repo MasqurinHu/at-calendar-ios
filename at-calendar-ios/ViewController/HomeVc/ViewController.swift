@@ -15,11 +15,12 @@ class ViewController: UIViewController {
         page.setup(with: HomeViewModel(routerDelegate: self))
     }
 }
-
+// MARK: - HomeRouterDelegate
 extension ViewController: HomeRouterDelegate {
     
     func showCalendar() {
         let vc = CalendarVc()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
 }

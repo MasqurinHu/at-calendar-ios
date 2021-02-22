@@ -9,3 +9,7 @@
 "Home" = "";
 "HomeBtnTitle" = "Next page";
 
+"Calendar" = "";
+"CalendarTitle" = "Available times";
+"CalendarDescription" = "* All times listed are in your local timezone:";
+"CalendarClose" = "close";
