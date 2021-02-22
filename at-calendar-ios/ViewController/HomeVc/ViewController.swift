@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 extension ViewController: HomeRouterDelegate {
     
     func showCalendar() {
-        let vc = UIViewController()
+        let vc = CalendarVc()
         present(vc, animated: true, completion: nil)
     }
 }

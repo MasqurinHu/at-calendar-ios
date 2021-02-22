@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		452A12C425E3B06F00444689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452A12C325E3B06F00444689 /* Main.storyboard */; };
+		452A12D025E3B18500444689 /* CalendarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12CF25E3B18500444689 /* CalendarVc.swift */; };
 		45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376525E0FE4400A69250 /* AppDelegate.swift */; };
 		45F2376825E0FE4400A69250 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376725E0FE4400A69250 /* SceneDelegate.swift */; };
 		45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376925E0FE4400A69250 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		452A129F25E3AAA100444689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		452A12C325E3B06F00444689 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		452A12CF25E3B18500444689 /* CalendarVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVc.swift; sourceTree = "<group>"; };
 		45F2376225E0FE4400A69250 /* at-calendar-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "at-calendar-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2376525E0FE4400A69250 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45F2376725E0FE4400A69250 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 				452A12C325E3B06F00444689 /* Main.storyboard */,
 			);
 			path = HomeVc;
+			sourceTree = "<group>";
+		};
+		452A12CE25E3B16100444689 /* CalendarVc */ = {
+			isa = PBXGroup;
+			children = (
+				452A12CF25E3B18500444689 /* CalendarVc.swift */,
+			);
+			path = CalendarVc;
 			sourceTree = "<group>";
 		};
 		45F2375925E0FE4400A69250 = {
@@ -177,6 +187,7 @@
 		45F237D525E39DFE00A69250 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				452A12CE25E3B16100444689 /* CalendarVc */,
 				452A12A825E3ACB300444689 /* HomeVc */,
 			);
 			path = ViewController;
@@ -331,6 +342,7 @@
 				45F2376825E0FE4400A69250 /* SceneDelegate.swift in Sources */,
 				45F237E225E39E6600A69250 /* XibView.swift in Sources */,
 				45F237EC25E3A09900A69250 /* ViewModelHolder.swift in Sources */,
+				452A12D025E3B18500444689 /* CalendarVc.swift in Sources */,
 				45F237DD25E39E4800A69250 /* BtnView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
