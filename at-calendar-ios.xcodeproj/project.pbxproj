@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376525E0FE4400A69250 /* AppDelegate.swift */; };
 		45F2376825E0FE4400A69250 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376725E0FE4400A69250 /* SceneDelegate.swift */; };
 		45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2376925E0FE4400A69250 /* ViewController.swift */; };
@@ -15,6 +16,12 @@
 		45F2377225E0FE4500A69250 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2377025E0FE4500A69250 /* LaunchScreen.storyboard */; };
 		45F2377D25E0FE4500A69250 /* at_calendar_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2377C25E0FE4500A69250 /* at_calendar_iosTests.swift */; };
 		45F2378825E0FE4500A69250 /* at_calendar_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2378725E0FE4500A69250 /* at_calendar_iosUITests.swift */; };
+		45F237D825E39E3800A69250 /* BtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F237D725E39E3800A69250 /* BtnView.xib */; };
+		45F237DD25E39E4800A69250 /* BtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F237DC25E39E4800A69250 /* BtnView.swift */; };
+		45F237E225E39E6600A69250 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F237E125E39E6600A69250 /* XibView.swift */; };
+		45F237E725E3A07200A69250 /* ViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F237E625E3A07200A69250 /* ViewModelSpec.swift */; };
+		45F237EC25E3A09900A69250 /* ViewModelHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F237EB25E3A09900A69250 /* ViewModelHolder.swift */; };
+		45F237F125E3A31B00A69250 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F237F025E3A31B00A69250 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		452A129425E3A9EE00444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		452A129525E3A9EE00444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		452A129F25E3AAA100444689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45F2376225E0FE4400A69250 /* at-calendar-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "at-calendar-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2376525E0FE4400A69250 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45F2376725E0FE4400A69250 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,12 @@
 		45F2378325E0FE4500A69250 /* at-calendar-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "at-calendar-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2378725E0FE4500A69250 /* at_calendar_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = at_calendar_iosUITests.swift; sourceTree = "<group>"; };
 		45F2378925E0FE4500A69250 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F237D725E39E3800A69250 /* BtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BtnView.xib; sourceTree = "<group>"; };
+		45F237DC25E39E4800A69250 /* BtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnView.swift; sourceTree = "<group>"; };
+		45F237E125E39E6600A69250 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		45F237E625E3A07200A69250 /* ViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSpec.swift; sourceTree = "<group>"; };
+		45F237EB25E3A09900A69250 /* ViewModelHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHolder.swift; sourceTree = "<group>"; };
+		45F237F025E3A31B00A69250 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		452A12A825E3ACB300444689 /* HomeVc */ = {
+			isa = PBXGroup;
+			children = (
+				45F2376925E0FE4400A69250 /* ViewController.swift */,
+				45F2376B25E0FE4400A69250 /* Main.storyboard */,
+			);
+			path = HomeVc;
+			sourceTree = "<group>";
+		};
 		45F2375925E0FE4400A69250 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +127,13 @@
 			children = (
 				45F2376525E0FE4400A69250 /* AppDelegate.swift */,
 				45F2376725E0FE4400A69250 /* SceneDelegate.swift */,
-				45F2376925E0FE4400A69250 /* ViewController.swift */,
-				45F2376B25E0FE4400A69250 /* Main.storyboard */,
+				45F237D525E39DFE00A69250 /* ViewController */,
+				45F237D425E39DF300A69250 /* ViewModel */,
+				45F237D325E39DE700A69250 /* View */,
 				45F2376E25E0FE4500A69250 /* Assets.xcassets */,
 				45F2377025E0FE4500A69250 /* LaunchScreen.storyboard */,
 				45F2377325E0FE4500A69250 /* Info.plist */,
+				452A12A025E3AAA100444689 /* Localizable.strings */,
 			);
 			path = "at-calendar-ios";
 			sourceTree = "<group>";
@@ -126,6 +154,42 @@
 				45F2378925E0FE4500A69250 /* Info.plist */,
 			);
 			path = "at-calendar-iosUITests";
+			sourceTree = "<group>";
+		};
+		45F237D325E39DE700A69250 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45F237EB25E3A09900A69250 /* ViewModelHolder.swift */,
+				45F237E125E39E6600A69250 /* XibView.swift */,
+				45F237D625E39E2900A69250 /* BtnView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45F237D425E39DF300A69250 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45F237E625E3A07200A69250 /* ViewModelSpec.swift */,
+				45F237F025E3A31B00A69250 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45F237D525E39DFE00A69250 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				452A12A825E3ACB300444689 /* HomeVc */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		45F237D625E39E2900A69250 /* BtnView */ = {
+			isa = PBXGroup;
+			children = (
+				45F237D725E39E3800A69250 /* BtnView.xib */,
+				45F237DC25E39E4800A69250 /* BtnView.swift */,
+			);
+			path = BtnView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +277,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 45F2375925E0FE4400A69250;
 			productRefGroup = 45F2376325E0FE4400A69250 /* Products */;
@@ -231,9 +296,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452A129E25E3AAA100444689 /* Localizable.strings in Resources */,
 				45F2377225E0FE4500A69250 /* LaunchScreen.storyboard in Resources */,
 				45F2376F25E0FE4500A69250 /* Assets.xcassets in Resources */,
 				45F2376D25E0FE4400A69250 /* Main.storyboard in Resources */,
+				45F237D825E39E3800A69250 /* BtnView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */,
+				45F237E725E3A07200A69250 /* ViewModelSpec.swift in Sources */,
 				45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */,
+				45F237F125E3A31B00A69250 /* HomeViewModel.swift in Sources */,
 				45F2376825E0FE4400A69250 /* SceneDelegate.swift in Sources */,
+				45F237E225E39E6600A69250 /* XibView.swift in Sources */,
+				45F237EC25E3A09900A69250 /* ViewModelHolder.swift in Sources */,
+				45F237DD25E39E4800A69250 /* BtnView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,10 +368,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		452A12A025E3AAA100444689 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				452A129F25E3AAA100444689 /* en */,
+				452A12A425E3AAA700444689 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		45F2376B25E0FE4400A69250 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				45F2376C25E0FE4400A69250 /* Base */,
+				452A129425E3A9EE00444689 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -308,6 +390,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				45F2377125E0FE4500A69250 /* Base */,
+				452A129525E3A9EE00444689 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -319,6 +402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -380,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
