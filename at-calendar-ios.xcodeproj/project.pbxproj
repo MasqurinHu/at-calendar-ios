@@ -11,6 +11,7 @@
 		4524D36125E48B30004B25D3 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D35F25E48B30004B25D3 /* TextCollectionViewCell.swift */; };
 		4524D36225E48B30004B25D3 /* TextCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4524D36025E48B30004B25D3 /* TextCollectionViewCell.xib */; };
 		4524D37025E4A14A004B25D3 /* UIColor+project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D36F25E4A14A004B25D3 /* UIColor+project.swift */; };
+		4524D37E25E4ACE3004B25D3 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D37D25E4ACE3004B25D3 /* DayViewModel.swift */; };
 		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		452A12C425E3B06F00444689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452A12C325E3B06F00444689 /* Main.storyboard */; };
 		452A12D025E3B18500444689 /* CalendarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12CF25E3B18500444689 /* CalendarVc.swift */; };
@@ -53,6 +54,7 @@
 		4524D35F25E48B30004B25D3 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
 		4524D36025E48B30004B25D3 /* TextCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewCell.xib; sourceTree = "<group>"; };
 		4524D36F25E4A14A004B25D3 /* UIColor+project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+project.swift"; sourceTree = "<group>"; };
+		4524D37D25E4ACE3004B25D3 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		452A129525E3A9EE00444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		452A129F25E3AAA100444689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				45F237E625E3A07200A69250 /* ViewModelSpec.swift */,
 				45F237F025E3A31B00A69250 /* HomeViewModel.swift */,
 				452A12DD25E3C25700444689 /* CalendarViewModel.swift */,
+				4524D37D25E4ACE3004B25D3 /* DayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			files = (
 				452A12D625E3B2F000444689 /* CalendarView.swift in Sources */,
 				4524D35325E41862004B25D3 /* TopLineView.swift in Sources */,
+				4524D37E25E4ACE3004B25D3 /* DayViewModel.swift in Sources */,
 				45F2376A25E0FE4400A69250 /* ViewController.swift in Sources */,
 				45F237E725E3A07200A69250 /* ViewModelSpec.swift in Sources */,
 				45F2376625E0FE4400A69250 /* AppDelegate.swift in Sources */,

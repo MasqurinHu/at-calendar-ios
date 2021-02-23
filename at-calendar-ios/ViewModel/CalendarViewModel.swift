@@ -28,7 +28,7 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
 
 
     func dayListDidChange(_ dayList: ([DayViewViewModelSpec]) -> Void) {
-        dayList(Array(repeating: DayViewViewModel(), count: 7))
+        dayList(Array(repeating: DayViewViewModel(with: Date()), count: 7))
     }
 
     var title: String { NSLocalizedString("CalendarTitle", comment: "Available times") }
@@ -59,12 +59,6 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
     func closeBtnAction() {
         router?.closeAction()
     }
-}
-
-class DayViewViewModel: DayViewViewModelSpec {
-    var isAvailable: Bool = Bool.random()
-    var title: String { "mon" }
-    var content: String { "30" }
 }
 
 class TimeViewModel: TextCollectionViewCellViewModelSpec {
