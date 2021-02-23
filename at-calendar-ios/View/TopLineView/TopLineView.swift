@@ -39,26 +39,23 @@ extension TopLineView: ViewModelHolder {
 
     func setup(with viewModel: ViewModelSpec) {
         self.viewModel = viewModel as? ViewModel
-        line.backgroundColor = self.viewModel?.isAvailable ?? false ? lineColor : unavailableColor
+        line.backgroundColor = self.viewModel?.isAvailable ?? false ? .availableColor : .lightGray
         title.text = self.viewModel?.title
-        title.textColor = self.viewModel?.isAvailable ?? false ? availableColor : unavailableColor
+        title.textColor = self.viewModel?.isAvailable ?? false ? .darkText : .lightGray
         content.text = self.viewModel?.content
-        content.textColor = self.viewModel?.isAvailable ?? false ? availableColor : unavailableColor
+        content.textColor = self.viewModel?.isAvailable ?? false ? .darkText : .lightGray
     }
 }
 
 private extension TopLineView {
-    var lineColor: UIColor { .green }
-    var availableColor: UIColor { .darkText }
-    var unavailableColor: UIColor {.lightGray }
 
     func layout() {
         let dayStack = UIStackView(arrangedSubviews: [title, content])
-        dayStack.spacing = 8
         dayStack.alignment = .center
         dayStack.axis = .vertical
         let stack = UIStackView(arrangedSubviews: [line, dayStack])
         stack.axis = .vertical
+        stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
         NSLayoutConstraint.activate([

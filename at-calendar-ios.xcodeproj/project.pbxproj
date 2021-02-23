@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4524D35325E41862004B25D3 /* TopLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D35225E41862004B25D3 /* TopLineView.swift */; };
+		4524D36125E48B30004B25D3 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D35F25E48B30004B25D3 /* TextCollectionViewCell.swift */; };
+		4524D36225E48B30004B25D3 /* TextCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4524D36025E48B30004B25D3 /* TextCollectionViewCell.xib */; };
+		4524D37025E4A14A004B25D3 /* UIColor+project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524D36F25E4A14A004B25D3 /* UIColor+project.swift */; };
 		452A129E25E3AAA100444689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452A12A025E3AAA100444689 /* Localizable.strings */; };
 		452A12C425E3B06F00444689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452A12C325E3B06F00444689 /* Main.storyboard */; };
 		452A12D025E3B18500444689 /* CalendarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A12CF25E3B18500444689 /* CalendarVc.swift */; };
@@ -47,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		4524D35225E41862004B25D3 /* TopLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLineView.swift; sourceTree = "<group>"; };
+		4524D35F25E48B30004B25D3 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
+		4524D36025E48B30004B25D3 /* TextCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewCell.xib; sourceTree = "<group>"; };
+		4524D36F25E4A14A004B25D3 /* UIColor+project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+project.swift"; sourceTree = "<group>"; };
 		452A129525E3A9EE00444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		452A129F25E3AAA100444689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		452A12A425E3AAA700444689 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -108,6 +114,31 @@
 			path = TopLineView;
 			sourceTree = "<group>";
 		};
+		4524D35D25E48ADD004B25D3 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4524D35E25E48AF3004B25D3 /* TextCollectionViewCell */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		4524D35E25E48AF3004B25D3 /* TextCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4524D35F25E48B30004B25D3 /* TextCollectionViewCell.swift */,
+				4524D36025E48B30004B25D3 /* TextCollectionViewCell.xib */,
+			);
+			path = TextCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		4524D36E25E4A0F5004B25D3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4524D36F25E4A14A004B25D3 /* UIColor+project.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		452A12A825E3ACB300444689 /* HomeVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +189,7 @@
 			children = (
 				45F2376525E0FE4400A69250 /* AppDelegate.swift */,
 				45F2376725E0FE4400A69250 /* SceneDelegate.swift */,
+				4524D36E25E4A0F5004B25D3 /* Extension */,
 				45F237D525E39DFE00A69250 /* ViewController */,
 				45F237D425E39DF300A69250 /* ViewModel */,
 				45F237D325E39DE700A69250 /* View */,
@@ -192,6 +224,7 @@
 			children = (
 				45F237EB25E3A09900A69250 /* ViewModelHolder.swift */,
 				45F237E125E39E6600A69250 /* XibView.swift */,
+				4524D35D25E48ADD004B25D3 /* CollectionViewCell */,
 				4524D35125E417D6004B25D3 /* TopLineView */,
 				452A12D425E3B2DB00444689 /* CalendarView */,
 				45F237D625E39E2900A69250 /* BtnView */,
@@ -334,6 +367,7 @@
 				452A129E25E3AAA100444689 /* Localizable.strings in Resources */,
 				452A12C425E3B06F00444689 /* Main.storyboard in Resources */,
 				45F2377225E0FE4500A69250 /* LaunchScreen.storyboard in Resources */,
+				4524D36225E48B30004B25D3 /* TextCollectionViewCell.xib in Resources */,
 				45F2376F25E0FE4500A69250 /* Assets.xcassets in Resources */,
 				45F237D825E39E3800A69250 /* BtnView.xib in Resources */,
 			);
@@ -372,6 +406,8 @@
 				452A12D025E3B18500444689 /* CalendarVc.swift in Sources */,
 				452A12DE25E3C25700444689 /* CalendarViewModel.swift in Sources */,
 				45F237DD25E39E4800A69250 /* BtnView.swift in Sources */,
+				4524D36125E48B30004B25D3 /* TextCollectionViewCell.swift in Sources */,
+				4524D37025E4A14A004B25D3 /* UIColor+project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

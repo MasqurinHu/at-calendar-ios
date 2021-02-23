@@ -21,6 +21,11 @@ class CalendarViewModel {
 }
 // MARK: - CalendarViewViewModelSpec
 extension CalendarViewModel: CalendarViewViewModelSpec {
+    
+    func timeListDidChange(_ timeList: ([TextCollectionViewCellViewModelSpec]) -> Void) {
+        timeList(Array.init(repeating: TimeViewModel(), count: Int.random(in: 50 ..< 100)))
+    }
+
 
     func dayListDidChange(_ dayList: ([DayViewViewModelSpec]) -> Void) {
         dayList(Array(repeating: DayViewViewModel(), count: 7))
@@ -60,4 +65,9 @@ class DayViewViewModel: DayViewViewModelSpec {
     var isAvailable: Bool = Bool.random()
     var title: String { "mon" }
     var content: String { "30" }
+}
+
+class TimeViewModel: TextCollectionViewCellViewModelSpec {
+    var text: String { "23:30"}
+    var isAvailable = Bool.random()
 }

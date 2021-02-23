@@ -15,6 +15,7 @@ protocol CalendarViewViewModelSpec: ViewModelSpec {
     func dayRangeDidChange(_ dayRange: (String) -> Void)
     func descriptionDidChange(_ description: (String) -> Void)
     func dayListDidChange(_ dayList: ([DayViewViewModelSpec]) -> Void)
+    func timeListDidChange(_ timeList: ([TextCollectionViewCellViewModelSpec]) -> Void)
     var closeBtnTitle: String { get }
     func closeBtnAction()
 }
@@ -38,11 +39,33 @@ class CalendarView: UIView {
     
     private var viewModel: ViewModel?
     private var dayViewList = [TopLineView]()
+    private var timeList = [TextCollectionViewCellViewModelSpec]()
     
     private lazy var titleLb = getTitle()
     private lazy var lastBtn = getLastBtn()
     private lazy var nextBtn = getNextBtn()
+    private lazy var collectionView = getCollectionView()
     private lazy var closeBtn = getCloseBtn()
+}
+// MARK: - UICollectionViewDataSource
+extension CalendarView: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        timeList.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        timeList.count > indexPath.item
+            ? timeList[indexPath.item].getCell(with: collectionView, indexPath: indexPath)
+            : UICollectionViewCell()
+    }
+}
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CalendarView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: (bounds.width - gap * 6) / CGFloat(dayCount), height: 20)
+    }
 }
 // MARK: - ViewModelHolder
 extension CalendarView: ViewModelHolder {
@@ -69,6 +92,13 @@ extension CalendarView: ViewModelHolder {
                 item.element.setup(with: dayList[item.offset])
             })
         })
+        self.viewModel?.timeListDidChange({ [weak self] timeList in
+            guard let self = self else { return }
+            self.timeList.removeAll()
+            self.timeList = timeList
+            timeList.forEach({$0.register(with: self.collectionView)})
+            self.collectionView.reloadData()
+        })
     }
 }
 // MARK: - layout
@@ -91,12 +121,21 @@ private extension CalendarView {
             topStack.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         setupDayList()
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: dayViewList[0].bottomAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
         
         addSubview(closeBtn)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            closeBtn.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 16),
             closeBtn.centerXAnchor.constraint(equalTo: centerXAnchor),
-            closeBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: closeBtn.bottomAnchor, constant: gap)
         ])
     }
 
@@ -157,6 +196,17 @@ private extension CalendarView {
         btn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         btn.addTarget(self, action: #selector(closeBtnAction(_:)), for: .touchUpInside)
         return btn
+    }
+
+    func getCollectionView() -> UICollectionView {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 8
+        flowLayout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = .systemBackground
+        return collectionView
     }
     
     @objc func lastBtnAction(_ btn: UIButton) {
