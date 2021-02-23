@@ -7,5 +7,10 @@
 */
 
 "Home" = "";
-"HomeBtnTitle" = "Next page";
+"HomeBtnTitle" = "Dynamically established";
+"HomebottomBtnTitle" = "from json";
 
+"Calendar" = "";
+"CalendarTitle" = "Available times";
+"CalendarDescription" = "* All times listed are in your local timezone:";
+"CalendarClose" = "close";
