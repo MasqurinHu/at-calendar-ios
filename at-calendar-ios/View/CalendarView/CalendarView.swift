@@ -80,7 +80,7 @@ extension CalendarView: ViewModelHolder {
         self.viewModel?.lastBtnEnableDidChange({ [weak self] isEnable in
             self?.lastBtn.isEnabled = isEnable
             self?.lastBtn.layer.borderColor = isEnable
-                ? UIColor.darkText.cgColor
+                ? UIColor.label.cgColor
                 : UIColor.lightGray.cgColor
         })
         self.viewModel?.dayRangeDidChange({ [weak self] dayRange in
@@ -173,11 +173,11 @@ private extension CalendarView {
     func getBtn(with title: String) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.setTitle(title, for: .normal)
-        btn.setTitleColor(.darkText, for: .normal)
+        btn.setTitleColor(.label, for: .normal)
         btn.setTitleColor(.lightGray, for: .disabled)
         btn.layer.cornerRadius = 8
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.darkText.cgColor
+        btn.layer.borderColor = UIColor.label.cgColor
         return btn
     }
     
