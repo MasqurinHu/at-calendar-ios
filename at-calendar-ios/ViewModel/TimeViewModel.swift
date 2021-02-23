@@ -8,9 +8,11 @@
 import Foundation
 
 class TimeViewModel {
+    let isAvailable: Bool
 
-    init(with date: Date) {
-        self.date = Date()
+    init(with date: Date, isAvailable: Bool) {
+        self.date = date
+        self.isAvailable = isAvailable
     }
 
     private let date: Date
@@ -22,6 +24,5 @@ class TimeViewModel {
 }
 
 extension TimeViewModel: TextCollectionViewCellViewModelSpec {
-    var text: String { isAvailable ? dateFormatter.string(from: date) : "" }
-    var isAvailable: Bool { Date().timeIntervalSince(date) <= .zero }
+    var text: String { Date().timeIntervalSince(date) <= .zero ? dateFormatter.string(from: date) : "" }
 }

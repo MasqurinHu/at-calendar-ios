@@ -13,7 +13,7 @@ class CalendarVc: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         let calendar = CalendarView()
-        calendar.setup(with: CalendarViewModel(routerDelegate: self))
+        calendar.setup(with: CalendarViewModel(routerDelegate: self, calendarRepository: DummyCalendartRepository(dataSource: NormalApiDataSource())))
         calendar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calendar)
         NSLayoutConstraint.activate([

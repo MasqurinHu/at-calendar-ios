@@ -9,13 +9,13 @@ import UIKit
 
 protocol CalendarViewViewModelSpec: ViewModelSpec {
     var title: String { get }
-    func lastBtnEnableDidChange(_ isEnable: (Bool) -> Void)
+    func lastBtnEnableDidChange(_ isEnable:  @escaping  (Bool) -> Void)
     func lastBtnAction()
     func nextBtnAction()
-    func dayRangeDidChange(_ dayRange: (String) -> Void)
-    func descriptionDidChange(_ description: (String) -> Void)
-    func dayListDidChange(_ dayList: ([DayViewViewModelSpec]) -> Void)
-    func timeListDidChange(_ timeList: ([TextCollectionViewCellViewModelSpec]) -> Void)
+    func dayRangeDidChange(_ dayRange:  @escaping  (String) -> Void)
+    func descriptionDidChange(_ description:  @escaping  (String) -> Void)
+    func dayListDidChange(_ dayList:  @escaping  ([DayViewViewModelSpec]) -> Void)
+    func timeListDidChange(_ timeList: @escaping ([TextCollectionViewCellViewModelSpec]) -> Void)
     var closeBtnTitle: String { get }
     func closeBtnAction()
 }
@@ -35,7 +35,11 @@ class CalendarView: UIView {
     }
 
     private let dateRangeLb = UILabel()
-    private let descriptionLb = UILabel()
+    private let descriptionLb: UILabel = {
+        let lb = UILabel()
+        lb.numberOfLines = .zero
+        return lb
+    }()
     
     private var viewModel: ViewModel?
     private var dayViewList = [TopLineView]()

@@ -19,7 +19,7 @@ class DayViewViewModel {
 // MARK: - DayViewViewModelSpec
 extension DayViewViewModel: DayViewViewModelSpec {
     var isAvailable: Bool {
-        Date().timeIntervalSince(date) <= .zero
+        Calendar.current.dateInterval(of: .day, for: Date())?.start.timeIntervalSince(date) ?? .zero <= .zero
     }
     var title: String {
         Self.dateFormetter.dateFormat = "E"
