@@ -23,7 +23,7 @@ class CalendarViewModel {
 extension CalendarViewModel: CalendarViewViewModelSpec {
     
     func timeListDidChange(_ timeList: ([TextCollectionViewCellViewModelSpec]) -> Void) {
-        timeList(Array.init(repeating: TimeViewModel(), count: Int.random(in: 50 ..< 100)))
+        timeList(Array.init(repeating: TimeViewModel(with: Date()), count: Int.random(in: 50 ..< 100)))
     }
 
 
@@ -59,9 +59,4 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
     func closeBtnAction() {
         router?.closeAction()
     }
-}
-
-class TimeViewModel: TextCollectionViewCellViewModelSpec {
-    var text: String { "23:30"}
-    var isAvailable = Bool.random()
 }

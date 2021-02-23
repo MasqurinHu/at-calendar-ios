@@ -14,10 +14,7 @@ class DayViewViewModel {
     }
 
     private let date: Date
-    private static let dateFormetter: DateFormatter = {
-        let formatter = DateFormatter()
-        return formatter
-    }()
+    private static let dateFormetter = DateFormatter()
 }
 // MARK: - DayViewViewModelSpec
 extension DayViewViewModel: DayViewViewModelSpec {
