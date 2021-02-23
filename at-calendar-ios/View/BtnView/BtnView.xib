@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BtnView" customModule="at_calendar_ios" customModuleProvider="target">
             <connections>
+                <outlet property="bottomBtn" destination="EL6-Xa-GsK" id="vj6-ln-It5"/>
                 <outlet property="btn" destination="ZkL-r0-syl" id="Kj4-ip-i7B"/>
             </connections>
         </placeholder>
@@ -19,18 +20,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkL-r0-syl">
-                    <rect key="frame" x="184" y="433" width="46" height="30"/>
+                    <rect key="frame" x="184" y="209" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="btnTap:" destination="-1" eventType="touchUpInside" id="zMi-Gf-GVn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EL6-Xa-GsK">
+                    <rect key="frame" x="184" y="657" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="bottomBtnTap:" destination="-1" eventType="touchUpInside" id="FGc-s2-pBS"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="EL6-Xa-GsK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IPL-Aq-4F5"/>
+                <constraint firstItem="EL6-Xa-GsK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="3/2" id="KJT-s3-w2E"/>
                 <constraint firstItem="ZkL-r0-syl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VSc-L6-8ZD"/>
-                <constraint firstItem="ZkL-r0-syl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dZe-ri-bDG"/>
+                <constraint firstItem="ZkL-r0-syl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1/2" id="dZe-ri-bDG"/>
             </constraints>
             <point key="canvasLocation" x="-39" y="119"/>
         </view>

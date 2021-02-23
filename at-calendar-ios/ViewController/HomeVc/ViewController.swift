@@ -17,8 +17,15 @@ class ViewController: UIViewController {
 }
 // MARK: - HomeRouterDelegate
 extension ViewController: HomeRouterDelegate {
-    
-    func showCalendar() {
+
+    func showJsonCalendar() {
+        let vc = CalendarVc()
+        vc.type = .json
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+
+    func showDynamicCalendar() {
         let vc = CalendarVc()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)

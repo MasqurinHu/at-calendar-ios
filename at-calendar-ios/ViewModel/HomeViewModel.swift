@@ -8,7 +8,8 @@
 import Foundation
 
 protocol HomeRouterDelegate: AnyObject {
-    func showCalendar()
+    func showDynamicCalendar()
+    func showJsonCalendar()
 }
 
 class HomeViewModel {
@@ -20,9 +21,14 @@ class HomeViewModel {
 }
 // MARK: - BtnViewViewModelSpec
 extension HomeViewModel: BtnViewViewModelSpec {
-    var btnTitle: String { NSLocalizedString("HomeBtnTitle", comment: "Next Page") }
+    var btnTitle: String { NSLocalizedString("HomeBtnTitle", comment: "dynamic") }
+    var bottomBtnTitle: String { NSLocalizedString("HomebottomBtnTitle", comment: "json") }
+
+    func bottomBtnAction() {
+        router?.showJsonCalendar()
+    }
     
     func btnAction() {
-        router?.showCalendar()
+        router?.showDynamicCalendar()
     }
 }

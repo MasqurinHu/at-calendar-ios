@@ -7,13 +7,25 @@
 
 import UIKit
 
+enum CalendarVcType {
+    case dynamic, json
+}
+
 class CalendarVc: UIViewController {
+    var type: CalendarVcType = .dynamic
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         let calendar = CalendarView()
-        calendar.setup(with: CalendarViewModel(routerDelegate: self, calendarRepository: DummyCalendartRepository(dataSource: NormalApiDataSource())))
+        let repository: CalendartRepositorySpec
+        switch type {
+        case .dynamic:
+            repository = DummyCalendartRepository()
+        case .json:
+            repository = CalendartRepository(apiDataSourceSpec: DummyApiDataSource())
+        }
+        calendar.setup(with: CalendarViewModel(routerDelegate: self, calendarRepository: repository))
         calendar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calendar)
         NSLayoutConstraint.activate([

@@ -88,7 +88,7 @@ private extension CalendarViewModel {
         calendarRepository.getCalendart(with: timeInterval, doneHandle: { [weak self] result in
             switch result {
             case .success(let models):
-                self?.progressTime(with: models)
+                self?.progressTime(with: models, select: date)
             case .failure(let error):
                 print(error)
                 break
@@ -99,7 +99,7 @@ private extension CalendarViewModel {
     func progressDay(with date: Date) {
         guard
             let newDate = calendar.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: date).date,
-            let endDate =  calendar.dateInterval(of: .weekOfMonth, for: newDate)?.end.addingTimeInterval(-1)
+            let endDate =  calendar.dateInterval(of: .weekOfMonth, for: newDate)?.end
         else {
             return
         }
@@ -131,9 +131,14 @@ private extension CalendarViewModel {
         isEnable?(Date().timeIntervalSince(date) < .zero)
     }
 
-    func progressTime(with models: [(Date, Bool)]) {
+    func progressTime(with models: [(Date, Bool)], select date: Date) {
+        guard
+            let startDate = calendar.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: date).date,
+            let endDate =  calendar.dateInterval(of: .weekOfMonth, for: date)?.end else { return }
         var models = models
+            .filter({ $0.0.timeIntervalSince(endDate) < . zero })
             .filter({ Date().timeIntervalSince($0.0) < . zero })
+            .filter({ startDate.timeIntervalSince($0.0) < . zero })
             .sorted { $0.0 < $1.0 }
         dateFormatter.dateFormat = "dd"
         var tempContent = Array(repeating: [(Date, Bool)](), count: 7)

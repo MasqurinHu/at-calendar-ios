@@ -22,7 +22,7 @@ class TimeViewModel {
         return formatter
     }()
 }
-
+// MARK: - TextCollectionViewCellViewModelSpec
 extension TimeViewModel: TextCollectionViewCellViewModelSpec {
     var text: String { Date().timeIntervalSince(date) <= .zero ? dateFormatter.string(from: date) : "" }
 }

@@ -1,15 +1,11 @@
 //
-//  CalendartRepository.swift
+//  DummyCalendartRepository.swift
 //  at-calendar-ios
 //
-//  Created by 五加一 on 2021/2/23.
+//  Created by 五加一 on 2021/2/24.
 //
 
 import Foundation
-
-enum CalendarError: Error {
-    case getError
-}
 
 struct DummyCalendartRepository: CalendartRepositorySpec {
 
@@ -20,22 +16,25 @@ struct DummyCalendartRepository: CalendartRepositorySpec {
             let newDate = calendar.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: date).date,
             let endDate =  calendar.dateInterval(of: .weekOfMonth, for: newDate)?.end
         else {
-            doneHandle(.failure(CalendarError.getError))
+            doneHandle(.failure(CalendarError.dummyError))
             return
         }
-        var temp: Date = newDate
+        let allTimeInterval = endDate.timeIntervalSince(newDate)
+        let count = Int.random(in: 20 ..< Int(allTimeInterval / 1800))
+        let timeInterval = allTimeInterval / Double(count)
+        var temp = newDate
         var tempList = [(Date, Bool)]()
-        let thirtyMin: Double = -1800
-        while temp.timeIntervalSince(endDate) < thirtyMin {
+        for _ in .zero ..< count {
+            let nextDate = temp.addingTimeInterval(timeInterval)
             guard let next = calendar.nextDate(
-                    after: temp,
-                    matching: DateComponents(minute: Bool.random() ? .zero : 30),
+                    after: nextDate,
+                    matching: progressDateComponents(last: nextDate, gapMinutes: 30),
                     matchingPolicy: .nextTime)
             else { continue }
-            temp = next
-            if Int.random(in: 0 ..< 4) == .zero {
-                tempList.append((next, Bool.random()))
+            if Int.random(in: .zero ..< 4) == .zero {
+                tempList += progressReturnData(start: temp, End: next,available: nil, gapMinutes: 30, gapSeconds: 1800)
             }
+            temp = next
         }
         doneHandle(.success(tempList))
     }
