@@ -18,9 +18,14 @@ protocol CalendarViewViewModelSpec: ViewModelSpec {
     func timeListDidChange(_ timeList: @escaping ([TextCollectionViewCellViewModelSpec]) -> Void)
     var closeBtnTitle: String { get }
     func closeBtnAction()
+    func viewStateDidChange(_ state:  @escaping  (CalendarView.ViewState) -> Void)
 }
 
 class CalendarView: UIView {
+    
+    enum ViewState {
+        case normal, loading, loadFail(errorMsg: String)
+    }
     
     typealias ViewModel = CalendarViewViewModelSpec
 
