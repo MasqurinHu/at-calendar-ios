@@ -41,9 +41,9 @@ extension TopLineView: ViewModelHolder {
         self.viewModel = viewModel as? ViewModel
         line.backgroundColor = self.viewModel?.isAvailable ?? false ? .availableColor : .lightGray
         title.text = self.viewModel?.title
-        title.textColor = self.viewModel?.isAvailable ?? false ? .darkText : .lightGray
+        title.textColor = self.viewModel?.isAvailable ?? false ? .label : .lightGray
         content.text = self.viewModel?.content
-        content.textColor = self.viewModel?.isAvailable ?? false ? .darkText : .lightGray
+        content.textColor = self.viewModel?.isAvailable ?? false ? .label : .lightGray
     }
 }
 
