@@ -22,18 +22,18 @@ protocol CalendarViewViewModelSpec: ViewModelSpec {
 }
 
 class CalendarView: UIView {
-    
+
     enum ViewState {
-        case normal, loading, loadFail(errorMsg: String)
+        case normal, loading
     }
-    
+
     typealias ViewModel = CalendarViewViewModelSpec
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupLayout()
@@ -45,16 +45,17 @@ class CalendarView: UIView {
         lb.numberOfLines = .zero
         return lb
     }()
-    
+
     private var viewModel: ViewModel?
     private var dayViewList = [TopLineView]()
     private var timeList = [TextCollectionViewCellViewModelSpec]()
-    
+
     private lazy var titleLb = getTitle()
     private lazy var lastBtn = getLastBtn()
     private lazy var nextBtn = getNextBtn()
     private lazy var collectionView = getCollectionView()
     private lazy var closeBtn = getCloseBtn()
+    private lazy var loadingView = getLoadingView()
 }
 // MARK: - UICollectionViewDataSource
 extension CalendarView: UICollectionViewDataSource {
@@ -78,7 +79,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 }
 // MARK: - ViewModelHolder
 extension CalendarView: ViewModelHolder {
-    
+
     func setup(with viewModel: ViewModelSpec) {
         self.viewModel = viewModel as? ViewModel
         titleLb.text = self.viewModel?.title
@@ -107,6 +108,14 @@ extension CalendarView: ViewModelHolder {
             self.timeList = timeList
             timeList.forEach({$0.register(with: self.collectionView)})
             self.collectionView.reloadData()
+        })
+        self.viewModel?.viewStateDidChange({ [weak self] state in
+            switch state {
+            case .normal:
+                self?.loadingView.stopAnimating()
+            case .loading:
+                self?.loadingView.startAnimating()
+            }
         })
     }
 }
@@ -138,7 +147,7 @@ private extension CalendarView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
+
         addSubview(closeBtn)
         closeBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -168,13 +177,13 @@ private extension CalendarView {
             }
         }
     }
-    
+
     func getTitle() -> UILabel {
         let lb = UILabel()
         lb.font = UIFont.boldSystemFont(ofSize: 24)
         return lb
     }
-    
+
     func getBtn(with title: String) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.setTitle(title, for: .normal)
@@ -185,21 +194,21 @@ private extension CalendarView {
         btn.layer.borderColor = UIColor.label.cgColor
         return btn
     }
-    
+
     func getLastBtn() -> UIButton {
         let btn = getBtn(with: "<")
         btn.widthAnchor.constraint(equalToConstant: 44).isActive = true
         btn.addTarget(self, action: #selector(lastBtnAction(_:)), for: .touchUpInside)
         return btn
     }
-    
+
     func getNextBtn() -> UIButton {
         let btn = getBtn(with: ">")
         btn.widthAnchor.constraint(equalToConstant: 44).isActive = true
         btn.addTarget(self, action: #selector(nextBtnAction(_:)), for: .touchUpInside)
         return btn
     }
-    
+
     func getCloseBtn() -> UIButton {
         let btn = getBtn(with: "")
         btn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
@@ -217,15 +226,29 @@ private extension CalendarView {
         collectionView.backgroundColor = .systemBackground
         return collectionView
     }
-    
+
+    func getLoadingView() -> UIActivityIndicatorView {
+        let loadingView = UIActivityIndicatorView(style: .large)
+        loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: topAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        return loadingView
+    }
+
     @objc func lastBtnAction(_ btn: UIButton) {
         viewModel?.lastBtnAction()
     }
-    
+
     @objc func nextBtnAction(_ btn: UIButton) {
         viewModel?.nextBtnAction()
     }
-    
+
     @objc func closeBtnAction(_ btn: UIButton) {
         viewModel?.closeBtnAction()
     }

@@ -12,7 +12,7 @@ protocol CalendarRouterDelegate: AnyObject {
 }
 
 class CalendarViewModel {
-    
+
     init(routerDelegate: CalendarRouterDelegate, calendarRepository: CalendartRepositorySpec) {
         router = routerDelegate
         self.calendarRepository = calendarRepository
@@ -27,6 +27,7 @@ class CalendarViewModel {
     private var timeList: (([TextCollectionViewCellViewModelSpec]) -> Void)?
     private var isEnable: ((Bool) -> Void)?
     private var dayRange: ((String) -> Void)?
+    private var state:  ((CalendarView.ViewState) -> Void)?
 
     private weak var router: CalendarRouterDelegate?
 }
@@ -34,7 +35,7 @@ class CalendarViewModel {
 extension CalendarViewModel: CalendarViewViewModelSpec {
     var title: String { NSLocalizedString("CalendarTitle", comment: "Available times") }
     var closeBtnTitle: String { NSLocalizedString("CalendarClose", comment: "close") }
-    
+
     func timeListDidChange(_ timeList: @escaping ([TextCollectionViewCellViewModelSpec]) -> Void) {
         self.timeList = timeList
         getData(with: Date())
@@ -43,11 +44,11 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
     func dayListDidChange(_ dayList: @escaping ([DayViewViewModelSpec]) -> Void) {
         self.dayList = dayList
     }
-    
+
     func lastBtnEnableDidChange(_ isEnable: @escaping (Bool) -> Void) {
         self.isEnable = isEnable
     }
-    
+
     func lastBtnAction() {
         guard let newDate =  calendar.dateInterval(of: .weekOfMonth, for: selectDate)?.start.addingTimeInterval(-1) else {
             return
@@ -55,7 +56,7 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
         selectDate = newDate
         getData(with: newDate)
     }
-    
+
     func nextBtnAction() {
         guard let newDate =  calendar.dateInterval(of: .weekOfMonth, for: selectDate)?.end else {
             return
@@ -63,35 +64,40 @@ extension CalendarViewModel: CalendarViewViewModelSpec {
         selectDate = newDate
         getData(with: newDate)
     }
-    
+
     func dayRangeDidChange(_ dayRange: @escaping (String) -> Void) {
         self.dayRange = dayRange
     }
-    
+
     func descriptionDidChange(_ description: (String) -> Void) {
         let gmt = (TimeZone.current.abbreviation() ?? "")
         let location = TimeZone.current.identifier
         let text = NSLocalizedString("CalendarDescription", comment: "CalendarDescription") + " \(location) (\(gmt))"
         description(text)
     }
-    
+
     func closeBtnAction() {
         router?.closeAction()
+    }
+
+    func viewStateDidChange(_ state: @escaping (CalendarView.ViewState) -> Void) {
+        self.state = state
     }
 }
 
 private extension CalendarViewModel {
 
     func getData(with date: Date) {
+        state?(.loading)
         progressDay(with: date)
         let timeInterval = Int(date.timeIntervalSince1970)
         calendarRepository.getCalendart(with: timeInterval, doneHandle: { [weak self] result in
             switch result {
             case .success(let models):
                 self?.progressTime(with: models, select: date)
+                self?.state?(.normal)
             case .failure(let error):
-                print(error)
-                break
+                self?.state?(.normal)
             }
         })
     }
