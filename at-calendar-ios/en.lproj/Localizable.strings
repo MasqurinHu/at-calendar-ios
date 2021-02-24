@@ -14,3 +14,4 @@
 "CalendarTitle" = "Available times";
 "CalendarDescription" = "* All times listed are in your local timezone:";
 "CalendarClose" = "close";
+"CalendarError" = "Error";

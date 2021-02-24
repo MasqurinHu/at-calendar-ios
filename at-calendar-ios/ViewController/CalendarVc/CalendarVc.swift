@@ -16,6 +16,24 @@ class CalendarVc: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPage()
+    }
+}
+// MARK: - CalendarRouterDelegate
+extension CalendarVc: CalendarRouterDelegate {
+
+    func closeAction() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func showErrorAlert(message: String) {
+        showAlert(message: message)
+    }
+}
+// MARK: - setup
+private extension CalendarVc {
+
+    func setupPage() {
         view.backgroundColor = .systemBackground
         let calendar = CalendarView()
         let repository: CalendartRepositorySpec
@@ -25,7 +43,9 @@ class CalendarVc: UIViewController {
         case .json:
             repository = CalendartRepository(apiDataSourceSpec: DummyApiDataSource())
         }
-        calendar.setup(with: CalendarViewModel(routerDelegate: self, calendarRepository: repository))
+        calendar.setup(
+            with: CalendarViewModel(
+                routerDelegate: self, calendarRepository: repository))
         calendar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calendar)
         NSLayoutConstraint.activate([
@@ -35,11 +55,14 @@ class CalendarVc: UIViewController {
             calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-}
-// MARK: - CalendarRouterDelegate
-extension CalendarVc: CalendarRouterDelegate {
-    
-    func closeAction() {
-        dismiss(animated: true, completion: nil)
+
+    func showAlert(message: String) {
+        let title = NSLocalizedString("CalendarError", comment: "Error")
+        let alert = UIAlertController(
+            title: title, message: message, preferredStyle: .alert)
+        let btnTitle = NSLocalizedString("CalendarClose", comment: "Close")
+        let confirm = UIAlertAction(title: btnTitle, style: .default, handler: nil)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
 }
