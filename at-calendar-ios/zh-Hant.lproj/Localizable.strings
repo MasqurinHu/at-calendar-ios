@@ -14,3 +14,4 @@
 "CalendarTitle" = "授課時間";
 "CalendarDescription" = "* 時間以:";
 "CalendarClose" = "關閉";
+"CalendarError" = "錯誤";

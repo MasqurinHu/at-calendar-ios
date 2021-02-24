@@ -9,6 +9,7 @@ import Foundation
 
 protocol CalendarRouterDelegate: AnyObject {
     func closeAction()
+    func showErrorAlert(message: String)
 }
 
 class CalendarViewModel {
@@ -97,6 +98,7 @@ private extension CalendarViewModel {
                 self?.progressTime(with: models, select: date)
                 self?.state?(.normal)
             case .failure(let error):
+                self?.router?.showErrorAlert(message: error.localizedDescription)
                 self?.state?(.normal)
             }
         })
